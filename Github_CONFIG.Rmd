@@ -1,11 +1,11 @@
 ---
-title: "Github Workshop"
-subtitle: "MCGL Lab meeting"
+title: "GitHub Workshop"
+subtitle: "MEER Lab Meeting"
 author: "Created by Sam Straus"
 date: "Updated `r format(Sys.time(), '%d %B, %Y')`"
 output: 
   html_document:
-    css: style.css
+    # css: style.css
     number_sections: no
     toc: yes
     toc_float: yes
@@ -17,19 +17,22 @@ output:
 
 ### Install GitHub Desktop
 
-We'll install the GitHub Desktop application first, as this should also install the most recent version of git to your computer (GitHub has a handy [installation guide](https://github.com/git-guides/install-git) on their website). We'll be using this application during the workshop, as it's one of the most user-friendly ways to interact with your remote repositories.
+We'll install the GitHub Desktop application first, as this should also install the most recent version of git to your computer. This app is one of the most user-friendly ways to interact with your remote repositories, and we'll be using it during the workshop. Get it [here](https://desktop.github.com/)
 
-You can download GitHub Desktop [here](https://desktop.github.com/), also in UWSP Self Service app installation center.
+![](images/desktop_logo.png){width=50%}
+
 
 ### Confirm git installation
 
-Installing the desktop application should have also installed the git program, but let's double check just to be sure! For this, we have to go briefly to the command line/terminal. We can do this very easily by typing git --version into the Terminal, accessible through RStudio.
+Installing the desktop application should have also installed the git program, but let's double check just to be sure! Navigate to the terminal through Rstudio and type `git --version` into the command line.
 
-![](github_version.png)
+![](images/github_version.png)
 
 Check your git version by using the terminal in RStudio
+  
+  
 
-If, for some reason, you don't have git installed, there are several other options for doing so. See [GitHub's installation guide](https://github.com/git-guides/install-git) on their website and [this guide](https://happygitwithr.com/install-git.html) for some helpful additional instructions.
+If, for some reason, git hasn't installed properly, there are several other options for doing so. See [GitHub's installation guide](https://github.com/git-guides/install-git) on their website and [this guide](https://happygitwithr.com/install-git.html) for some helpful additional instructions.
 
 Many (but not all!) of the options for installation are command line based, which can be intimidating if you're not used to it. If you encounter any issues installing git, please contact Sam to help figure it out!
 
@@ -37,51 +40,41 @@ Many (but not all!) of the options for installation are command line based, whic
 
 To use remote repositories stored on GitHub, you'll need to [create an account](https://github.com/). It's free and easy to do! My favorite GitHub learning resource, [Happy Git with R](https://happygitwithr.com/index.html), has some tips on [how to create a good GitHub username](https://happygitwithr.com/github-acct.html).
 
-### Configure git
-
-We're demonstrating an approach to configuring your git account using Rstudio, but there is also a very simple command line approach you can [follow here](https://happygitwithr.com/hello-git.html), if you wish.
-
-To do this in Rstudio with the `usethis` package:
-
-`{r} use_git_config(user.name = "your name", user.email = "name@email.org")`
-
 ### Configure your Github credentials
+GitHub uses Personal Access Tokens (or PATs) in place of passwords for security reasons. If you want to read more about why GitHub made this change, you can check out [this blog post](https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/#background). We'll be using a couple of Rstudio packages to help us configure our various git and GitHub credentials. Use the following code to install the packages:
 
-By this point, you have created your Github account and installed Git in your computer. These next steps allow your local computer to communicate with your remote Github account.
+`install.packages(c("usethis", "gitcreds"))`
 
-### Creating and storing your Personal Access Token (PAT)
+Next, use `use_git_config()` to tell git where to find your GitHub account.
 
-GitHub uses Personal Access Tokens (or PATs) in place of passwords for security reasons.
-
-If you want to read more about why GitHub made this change, you can check out [this blog post](https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/#background).
-
+`{r} usethis::use_git_config(user.name = "your name", user.email = "name@email.org")`
+  
+There is also a very simple command line approach you can [follow here](https://happygitwithr.com/hello-git.html), if you wish.
+  
+  
 #### Create your PAT
 
 The instructions we provide here are for setting up PATs in R/RStudio, but you can do all of these tasks outside of R using GitHub and the command line. For additional alternatives (both in and out of R), check out the chapter on PATs in [Happy Git with R](https://happygitwithr.com/https-pat.html?q=personal%20acces#https-pat).
 
-First, install the `usethis` package, if you haven't already:
-
-`install.packages("usethis")`
-
-Next, run the following line of code:
+Run the following line of code:
 
 `usethis::create_github_token()`
 
-This will open GitHub at the PAT page. Follow [the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and click "Generate Token." Copy the access token that has been generated.
+This will open GitHub at the PAT page. Follow [the instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and click "Generate Token." Copy the access token that has been generated. You will not be able to see it again once you navigate away from the page.
 
 #### Store your PAT
 
-To save your PAT so you don't have to enter it over and over again, run the following using the `gitcreds` package:
+To save your PAT in Rstudio, run the following using the `gitcreds` package:
 
 `gitcreds::gitcreds_set()`
 
 When asked to do so, paste your PAT and hit enter. You can also check your saved PAT using `gitcreds::gitcreds_get()`
 
-Voila! Your PAT is stored, and you may go about pulling and pushing as you please!
+Voila! Your PAT is stored, and you're ready to use GitHub.
 
 ### Why use git?
 
-Here's are some suggested materials about why we should use git and github.
+Here's are some suggested materials about why we should use git and GitHub.
 
 Crystal-Ornelas, R., Edwards, B., Hébert, K., Hudgins, E. J., Sánchez-Reyes, L. L., Scott, E. R., ... Braga, P. H. P. (2022, July 13). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. <https://doi.org/10.31222/osf.io/x3p2q>
 
