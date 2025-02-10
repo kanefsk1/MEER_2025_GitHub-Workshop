@@ -47,7 +47,7 @@ GitHub uses Personal Access Tokens (or PATs) in place of passwords for security 
 
 Next, use `use_git_config()` to tell git where to find your GitHub account.
 
-`{r} usethis::use_git_config(user.name = "your name", user.email = "name@email.org")`
+`usethis::use_git_config(user.name = "your name", user.email = "name@email.org")`
   
 There is also a very simple command line approach you can [follow here](https://happygitwithr.com/hello-git.html), if you wish.
   
