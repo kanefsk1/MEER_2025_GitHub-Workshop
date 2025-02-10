@@ -1,6 +1,6 @@
 ---
-title: "GitHub Workshop"
-subtitle: "MEER Lab Meeting"
+title: "Molecular and Evolutionary Ecology Research Lab"
+subtitle: "GitHub Workshop"
 author: "Created by Sam Straus"
 date: "Updated `r format(Sys.time(), '%d %B, %Y')`"
 output: 
