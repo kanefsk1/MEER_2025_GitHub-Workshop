@@ -19,8 +19,7 @@ output:
 
 We'll install the GitHub Desktop application first, as this should also install the most recent version of git to your computer. This app is one of the most user-friendly ways to interact with your remote repositories, and we'll be using it during the workshop. Get it [here](https://desktop.github.com/)
 
-![](images/desktop_logo.png){width=50%}
-
+![](images/desktop_logo.png){width="50%"}
 
 ### Confirm git installation
 
@@ -29,8 +28,6 @@ Installing the desktop application should have also installed the git program, b
 ![](images/github_version.png)
 
 Check your git version by using the terminal in RStudio
-  
-  
 
 If, for some reason, git hasn't installed properly, there are several other options for doing so. See [GitHub's installation guide](https://github.com/git-guides/install-git) on their website and [this guide](https://happygitwithr.com/install-git.html) for some helpful additional instructions.
 
@@ -41,6 +38,7 @@ Many (but not all!) of the options for installation are command line based, whic
 To use remote repositories stored on GitHub, you'll need to [create an account](https://github.com/). It's free and easy to do! My favorite GitHub learning resource, [Happy Git with R](https://happygitwithr.com/index.html), has some tips on [how to create a good GitHub username](https://happygitwithr.com/github-acct.html).
 
 ### Configure your Github credentials
+
 GitHub uses Personal Access Tokens (or PATs) in place of passwords for security reasons. If you want to read more about why GitHub made this change, you can check out [this blog post](https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/#background). We'll be using a couple of Rstudio packages to help us configure our various git and GitHub credentials. Use the following code to install the packages:
 
 `install.packages(c("usethis", "gitcreds"))`
@@ -48,10 +46,9 @@ GitHub uses Personal Access Tokens (or PATs) in place of passwords for security 
 Next, use `use_git_config()` to tell git where to find your GitHub account.
 
 `usethis::use_git_config(user.name = "your name", user.email = "name@email.org")`
-  
+
 There is also a very simple command line approach you can [follow here](https://happygitwithr.com/hello-git.html), if you wish.
-  
-  
+
 #### Create your PAT
 
 The instructions we provide here are for setting up PATs in R/RStudio, but you can do all of these tasks outside of R using GitHub and the command line. For additional alternatives (both in and out of R), check out the chapter on PATs in [Happy Git with R](https://happygitwithr.com/https-pat.html?q=personal%20acces#https-pat).
